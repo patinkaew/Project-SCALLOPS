@@ -2,7 +2,7 @@
 
 ## Introduction
 
-SCALLOPS (Simulation of Crystal Amplification of Laser Light and Optical Pulse Shaping) is a software to help simulate the development of laser pulse via amplification in crystal. The project is developed as a part of my work as a LCLS summer intern in 2019. The primary purpose is to use this simulation for long pulse (ns) and short pulse (fs) laser systems at Matter in Extreme Conditions (MEC), one of the experimental hutches at Linac Coherence Light Source (LCLS) at SLAC National Laboratory. The simulation could also be used in future projects, such as Laser CARP and potentially MEC's novel peta watt laser system.
+SCALLOPS (Simulation of Crystal Amplification of Laser Light and Optical Pulse Shaping) is a software to help simulate the development of laser pulse via amplification in crystal. The project is developed as a part of my work as a LCLS summer intern in 2019. The primary purpose is to use this simulation for long pulse (ns) and short pulse (fs) laser systems at Matter in Extreme Conditions (MEC), one of the experimental hutches at Linac Coherent Light Source (LCLS) at SLAC National Laboratory. The simulation could also be used in future projects, such as Laser CARP and potentially MEC's novel peta watt laser system.
 
 ## Installation
 
