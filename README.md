@@ -14,4 +14,24 @@ The code utilizes the following python packages:
 
 I recommend install [Anaconda](https://www.anaconda.com/) distribution which contains everything except Pint.
 
+## Examples
+
+### Laser CARP
+
+Laser CARP (Collecter of At-Risk Photons) is MEC's novel project to further ensure safety of short-pulse laser system. Additional laser "CARP" will be installed to MPA 2 of short-pulse laser to take off leftover energy inside MPA2's Ti:Sapphire crystal after the main laser pulse got amplified. This simulation will help determine the plausibility of CARP.
+
+First, amplify the main laser pulse. Evolution of energy inside pulse and energy in crystal are plotted below. We can see that there are significant energy left inside the crystal after.
+
+![laser amplification in MPA2](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/laser_MPA2.png "laser amplification in MPA2")
+
+Suppose that 1% of this amplified laser pulse got reflected back and travel back to MPA2. Due to the setup of MPA2, it will experience 3 passses of amplification. Evolution of energy inside pulse and energy in crystal are plotted below.
+
+![reflected light amplification in MPA2](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/reflected_MPA2.png "reflected light amplification in MPA2")
+
+The plot shows that there is still ~ 13 gain inside the crystal. 
+
+Now, instead of leave the energy stored in Ti:Sapphire, we fire another laser "CARP" after main laser pulse exits MPA2. CARP will take leftover energy from Ti:Sapphire crystal.
+
+### Long-pulse laser system
+
 ## Acknowledgement
