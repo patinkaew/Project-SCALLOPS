@@ -18,7 +18,7 @@ I recommend install [Anaconda](https://www.anaconda.com/) distribution which con
 
 ### Laser CARP
 
-Laser CARP (Collecter of At-Risk Photons) is MEC's novel project to further ensure safety of short-pulse laser system. Additional laser (CARP) will be installed to MPA 2 of short-pulse laser to take off leftover energy inside MPA2's Ti:Sapphire crystal after the main laser pulse got amplified. This simulation will help determine the plausibility of CARP.
+Laser CARP (Collecter of At-Risk Photons) is MEC's novel project to further ensure safety of short-pulse laser system. Additional laser "CARP" will be installed to MPA 2 of short-pulse laser to take off leftover energy inside MPA2's Ti:Sapphire crystal after the main laser pulse got amplified. This simulation will help determine the plausibility of CARP.
 
 First, amplify the main laser pulse. Evolution of energy inside pulse and energy in crystal are plotted below. We can see that there are significant energy left inside the crystal after.
 
@@ -30,6 +30,8 @@ Suppose that 1% of this amplified laser pulse got reflected back and travel back
 
 The plot shows that there is still ~ 13 gain inside the crystal. 
 
+Now, instead of leave the energy stored in Ti:Sapphire, we fire another laser "CARP" after main laser pulse exits MPA2. CARP will take leftover energy from Ti:Sapphire crystal.
 
+### Long-pulse laser system
 
 ## Acknowledgement
