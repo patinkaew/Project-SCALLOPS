@@ -14,4 +14,11 @@ The code utilizes the following python packages:
 
 I recommend install [Anaconda](https://www.anaconda.com/) distribution which contains everything except Pint.
 
+## Examples
+
+### Modified use of Basic Amplification : Laser CARP
+
+![alt text](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/laser_MPA2.png "laser amplification in MPA2")
+
+
 ## Acknowledgement
