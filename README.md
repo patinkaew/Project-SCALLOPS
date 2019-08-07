@@ -20,5 +20,6 @@ I recommend install [Anaconda](https://www.anaconda.com/) distribution which con
 
 ![alt text](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/laser_MPA2.png "laser amplification in MPA2")
 
+![alt text](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/reflected_MPA2.png "reflected light amplification in MPA2")
 
 ## Acknowledgement
