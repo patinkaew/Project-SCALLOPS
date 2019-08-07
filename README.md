@@ -34,7 +34,7 @@ Now, instead of leave the energy stored in Ti:Sapphire, we fire another laser "C
 
 ![CARP amplification in MPA2](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/carp_MPA2.png)
 
-Amplified CARP light will be dumped. Then, the reflected light (1% from main light) arrive back to MPA2. The plot show, with CARP, the gain decrease to < 1.5.
+Amplified CARP light will be dumped after. Then, the reflected light (1% from main light) arrive back to MPA2. The plot shows, with laser CARP, the gain decrease to < 1.5.
 
 ![reflected amplification in MPA2 after CARP](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/reflected_carp_MPA2.png)
 
