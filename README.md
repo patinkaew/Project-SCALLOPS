@@ -30,8 +30,18 @@ Suppose that 1% of this amplified laser pulse got reflected back and travel back
 
 The plot shows that there is still ~ 13 gain inside the crystal. 
 
-Now, instead of leave the energy stored in Ti:Sapphire, we fire another laser "CARP" after main laser pulse exits MPA2. CARP will take leftover energy from Ti:Sapphire crystal.
+Now, instead of leave the energy stored in Ti:Sapphire, we fire another laser "CARP" after main laser pulse exits MPA2. CARP will take leftover energy from Ti:Sapphire crystal. CARP is an OPO laser with pulse energy ~ 100 mJ and pulse duration ~ 6 ns. We allow CARP to pass through Ti:Sapphire 5 times. Below is the plot of amplification of CARP inside MPA2.
+
+![CARP amplification in MPA2](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/carp_MPA2.png)
+
+Then, the reflected light (1% from main light) arrive back to MPA2. The plot show, with CARP, the gain decrease to < 1.5.
+
+![reflected amplification in MPA2 after CARP](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/reflected_carp_MPA2.png)
+
+Since one pass will take about 10 ns for CARP to go through the crystal, for 5 passes of CARP, we know that it would take ~ 50 ns to finish taking off the energy. However, it takes ~ 100 ns for reflected light to get back to MPA2. Thus, this setup is plausible.
 
 ### Long-pulse laser system
+
+### Short-pulse laser system
 
 ## Acknowledgement
