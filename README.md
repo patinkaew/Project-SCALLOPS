@@ -48,6 +48,14 @@ First, we will demonstrate 'gain shifting'. Suppose that we seed with gaussian p
 
 ![gain shifting](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_gain_shift.png)
 
+For this reason, suppose we want the output to be a square pulse, if we seed with a square pulse, we would not get square pulse back.
+
+![long pulse square input](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_output1.png)
+
+Now, we could try seed with different pulse shape to make the output look like sqaure pulse.
+
+![long pulse square output](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_input1.png)
+
 ### Short-pulse laser system
 
 ## Acknowledgement
