@@ -62,4 +62,4 @@ Now, we could try seed with different pulse shape to make the output look like s
 
 ![short pulse flowchart](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_pulse_flowchart.png)
 
-## Acknowledgement
+## Acknowledgements
