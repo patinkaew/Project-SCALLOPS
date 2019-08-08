@@ -44,6 +44,8 @@ Since one pass will take about 10 ns for CARP to go through the crystal, for 5 p
 
 At MEC, long-pulse laser consists of multiple amplification steps. The front end laser produce initial light and then it gets amplified in Nd:Glass (diameter 25 mm). Then, amplified laser light is splitted into 4 beams. Each beam gets further amplified in Nd:Glass (diameter 50 mm) again. Lastly, amplified four beams recombine into one beam. Code's sequence resembles these processes and the simple flowchart is shown below.
 
+![long pulse flowchart](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_pulse_flowchart.png)
+
 First, we will demonstrate 'gain shifting'. Suppose that we seed with gaussian pulse. After amplifications, we could see that the peaks get shifted earlier because the earlier parts of the pulse will take some energy stored in crystal. Earlier parts will see more energy stored in crystal, compared to later parts. Thus, earlier parts will get more amplified.
 
 ![gain shifting](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_gain_shift.png)
@@ -57,5 +59,7 @@ Now, we could try seed with different pulse shape to make the output look like s
 ![long pulse square output](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_input1.png)
 
 ### Short-pulse laser system
+
+![short pulse flowchart](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_pulse_flowchart.png)
 
 ## Acknowledgement
