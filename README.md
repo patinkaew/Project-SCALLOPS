@@ -60,6 +60,6 @@ Now, we could try seed with different pulse shape to make the output look like s
 
 ### Short-pulse laser system
 
-<img src="https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_pulse_flowchart.png" width = "250")
+<img src="https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_pulse_flowchart.png" width="250">
 
 ## Acknowledgements
