@@ -88,7 +88,7 @@ And belows are plot of pulse energy and energy inside crystals for both MPA1 and
 
 ![short MPA2](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_MPA2.png)
 
-
-
-
 ## Acknowledgements
+
+This project would not be possible without supports from many people. I would like to thank Eric Cunningham for his great efforts to mentor this project from the beginning to the end. I would like to thank everyone at MEC who support the laser system as well as the experimental facilities. Lastly, I would like to thank SLAC’s LCLS summer intern program for this wonderful time I work as an intern at SLAC.
+
