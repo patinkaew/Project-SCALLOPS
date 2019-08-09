@@ -58,6 +58,12 @@ Now, we could try seed with different pulse shape to make the output look like s
 
 ![long pulse square output](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_input1.png)
 
+Belows are pulse energy and energy inside crystal 1 and crystal 2. Notice that pump energy is uniform since crystals are pump traversely, compared to longtidually pump for short-pulse.
+
+![long crystal 1]https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_MPA1.png
+
+![long crystal 2]https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_MPA2.png
+
 ### Short-pulse laser system
 
 The short-pulse laser system is quite complicated because to achieve very short pulse duration, we need to fire the laser with multiple wavelength, compared to long-pulse with mostly single wavelength. Therefore, we need to know the changes of spectrum throughtout pulse duration. We use short time fourier transform (STFT) to breakdown wavelength and time contents of the pulse. Below is the flowchart for short-pulse simulation.  
