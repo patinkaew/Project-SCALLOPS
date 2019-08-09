@@ -60,6 +60,29 @@ Now, we could try seed with different pulse shape to make the output look like s
 
 ### Short-pulse laser system
 
+The short-pulse laser system is quite complicated because to achieve very short pulse duration, we need to fire the laser with multiple wavelength, compared to long-pulse with mostly single wavelength. Therefore, we need to know the changes of spectrum throughtout pulse duration. We use short time fourier transform (STFT) to breakdown wavelength and time contents of the pulse. Below is the flowchart for short-pulse simulation.  
+
 <img src="https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_pulse_flowchart.png" width="250">
+
+Here is the plot of STFT magnitude of the pulse after stretcher. We amplify the pulse using Chirped Pulse Amplification (CPA). The stretcher will make the pulse more chirped and here we could actually see this on STFT plot.
+
+![short stft](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_stft.png)
+
+Here is a sample plot of amplification of gaussian pulse with FWHM = 1e13 Hz.
+
+![short broad spectrum](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_broad_spectrum.png)
+
+Here is a sample plot of amplification of gaussian pulse with FWHM = 5e12 Hz.
+
+![short narrow spectrum](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_narrow_spectrum.png)
+
+And belows are plot of pulse energy and energy inside crystals for both MPA1 and MPA2
+
+![short MPA1](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_MPA1.png)
+
+![short MPA2](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_MPA2.png)
+
+
+
 
 ## Acknowledgements
