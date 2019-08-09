@@ -60,9 +60,9 @@ Now, we could try seed with different pulse shape to make the output look like s
 
 Belows are pulse energy and energy inside crystal 1 and crystal 2. Notice that pump energy is uniform since crystals are pump traversely, compared to longtidually pump for short-pulse.
 
-![long crystal 1]https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_MPA1.png
+![long crystal 1](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_MPA1.png)
 
-![long crystal 2]https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_MPA2.png
+![long crystal 2](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_MPA2.png)
 
 ### Short-pulse laser system
 
