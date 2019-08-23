@@ -66,15 +66,15 @@ Belows are pulse energy and energy inside crystal 1 and crystal 2. Notice that p
 
 The short-pulse laser system is quite complicated because to achieve very short pulse duration, we need to fire the laser with multiple wavelength, compared to long-pulse with mostly single wavelength. Therefore, we need to know the changes of spectrum throughtout pulse duration. We use short time fourier transform (STFT) to breakdown wavelength and time contents of the pulse. Below is the flowchart for short-pulse simulation.  
 
-<img src="https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_pulse_flowchart.png" width="250">
+<img src="https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/shortpw_flowchart.png" width="250">
 
 Here is the plot of STFT magnitude of the pulse after stretcher. We amplify the pulse using Chirped Pulse Amplification (CPA). The stretcher will make the pulse more chirped and here we could actually see this on STFT plot.
 
-<img src="https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_stft.png" width="300">
+<img src="https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_stft.png" height="300">
 
 Here is a sample plot of amplification of gaussian pulse with FWHM = 1e13 Hz.
 
-![short example](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_example.png)
+<img src="https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_example.png" height="300">
 
 And belows are plot of pulse energy and energy inside crystals for both MPA1 and MPA2
 
