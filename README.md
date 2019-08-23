@@ -70,7 +70,7 @@ The short-pulse laser system is quite complicated because to achieve very short 
 
 Here is the plot of STFT magnitude of the pulse after stretcher. We amplify the pulse using Chirped Pulse Amplification (CPA). The stretcher will make the pulse more chirped and here we could actually see this on STFT plot.
 
-<img src="https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_stft.png" width="300">
+<img src="https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_stft.png" width="500">
 
 Here is a sample plot of amplification of gaussian pulse with FWHM = 1e13 Hz.
 
