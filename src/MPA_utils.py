@@ -2,7 +2,10 @@ import numpy as np
 from scipy import optimize, fftpack, signal
 from scipy.constants import nu2lambda, lambda2nu
 import matplotlib.pyplot as plt
-from pint import UnitRegistry
+try:
+    from pint import UnitRegistry
+except:
+    pass
 
 def polar_to_rect(spectral_amplitude, spectral_phase):
     return np.multiply(spectral_amplitude, np.exp(1j*spectral_phase))
@@ -23,9 +26,12 @@ def fit_emission_cross_section(xdata, ydata, guess):
     return params
 
 def convert_unit(value, from_unit, to_unit):
-    ureg = UnitRegistry()
-    quantity = value * ureg(from_unit)
-    return quantity.to(ureg(to_unit)).magnitude
+    try:
+        ureg = UnitRegistry()
+        quantity = value * ureg(from_unit)
+        return quantity.to(ureg(to_unit)).magnitude
+    except: # if pint is not installed
+        return value
 
 def amplitude_to_energy(amp, df, dt):
     return np.absolute(amp) * np.absolute(amp) * df * dt #energy = |amplitude|^2 df dt
@@ -53,3 +59,17 @@ def find_FWHM(x, arr): # assume that the maximum is in the middle
     l_idx = find_nearest_arg(arr[:m_idx], half_max)
     r_idx = m_idx + find_nearest_arg(arr[m_idx:], half_max)
     return np.abs(x[r_idx] - x[l_idx])
+
+def get_nmax(arr, n):
+    cut = -np.sort(-arr)[n]
+    return np.array([i for i in arr if i > cut])
+
+def clean_data_low_pass(x_values, y_values, filter_n = 25): # use low pass filter to clean data
+    y_fft = np.fft.rfft(y_values) # perform Fourier transform
+
+    low_pass_filter = np.ones(y_fft.shape) # build low pass filter for Fourier function
+    num_freq = y_fft.size
+    low_pass_filter[int(num_freq/filter_n):num_freq] = 0
+
+    y_clean_values = np.fft.irfft(y_fft  * low_pass_filter, len(y_values))
+    return y_clean_values
