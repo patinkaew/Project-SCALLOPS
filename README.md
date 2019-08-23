@@ -38,11 +38,11 @@ Amplified CARP light will be dumped after. Then, the reflected light (1% from ma
 
 Since one pass will take about 10 ns for CARP to go through the crystal, for 5 passes of CARP, we know that it would take ~ 50 ns to finish taking off the energy. However, it takes ~ 100 ns for reflected light to get back to MPA2. Thus, this setup is plausible.
 
-### Long-pulse laser system
+### Long-pulse laser
 
 At MEC, long-pulse laser consists of multiple amplification steps. The front end laser produce initial light and then it gets amplified in Nd:Glass (diameter 25 mm). Then, amplified laser light is splitted into 4 beams. Each beam gets further amplified in Nd:Glass (diameter 50 mm) again. Lastly, amplified four beams recombine into one beam. Code's sequence resembles these processes and the simple flowchart is shown below.
 
-<img src="https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_pulse_flowchart.png" width="250">
+<img src="https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_flowchart.png" width="250">
 
 First, we will demonstrate 'gain shifting'. Suppose that we seed with gaussian pulse. After amplifications, we could see that the peaks get shifted earlier because the earlier parts of the pulse will take some energy stored in crystal. Earlier parts will see more energy stored in crystal, compared to later parts. Thus, earlier parts will get more amplified.
 
@@ -62,7 +62,7 @@ Belows are pulse energy and energy inside crystal 1 and crystal 2. Notice that p
 
 ![long crystal 2](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/long_MPA2.png)
 
-### Short-pulse laser system
+### Short-pulse laser and Petawatt laser
 
 The short-pulse laser system is quite complicated because to achieve very short pulse duration, we need to fire the laser with multiple wavelength, compared to long-pulse with mostly single wavelength. Therefore, we need to know the changes of spectrum throughtout pulse duration. We use short time fourier transform (STFT) to breakdown wavelength and time contents of the pulse. Below is the flowchart for short-pulse simulation.  
 
@@ -70,15 +70,11 @@ The short-pulse laser system is quite complicated because to achieve very short 
 
 Here is the plot of STFT magnitude of the pulse after stretcher. We amplify the pulse using Chirped Pulse Amplification (CPA). The stretcher will make the pulse more chirped and here we could actually see this on STFT plot.
 
-![short stft](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_stft.png)
+<img src="https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_stft.png" width="300">
 
 Here is a sample plot of amplification of gaussian pulse with FWHM = 1e13 Hz.
 
-![short broad spectrum](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_broad_spectrum.png)
-
-Here is a sample plot of amplification of gaussian pulse with FWHM = 5e12 Hz.
-
-![short narrow spectrum](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_narrow_spectrum.png)
+![short example](https://github.com/patinkaew/Project-SCALLOPS/blob/master/pics/short_example.png)
 
 And belows are plot of pulse energy and energy inside crystals for both MPA1 and MPA2
 
@@ -88,5 +84,6 @@ And belows are plot of pulse energy and energy inside crystals for both MPA1 and
 
 ## Acknowledgements
 
-This project would not be possible without supports from many people. I would like to thank Eric Cunningham for his great efforts to mentor this project from the beginning to the end. I would like to thank everyone at MEC who support the laser system as well as the experimental facilities. Lastly, I would like to thank SLAC’s LCLS summer intern program for this wonderful time I work as an intern at SLAC.
+This project would not be possible without various supports. I would like to thank Eric Cunningham for his great efforts to mentor the project from the beginning to the end. I would like to thank everyone at MEC who supports the laser system as well as the experimental facilities. Lastly, I would like to thank SLAC’s LCLS summer intern program for this wonderful opportunity.
+
 
