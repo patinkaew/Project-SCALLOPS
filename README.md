@@ -8,7 +8,7 @@ The code utilizes the following python packages:
 - [Numpy](https://numpy.org/)
 - [Scipy](https://www.scipy.org/) 
 - [Pandas](https://pandas.pydata.org/) 
-- [Pint](https://pint.readthedocs.io/en/0.9/)
+- [Pint](https://pint.readthedocs.io/en/0.9/) (Optional. It is used to convert unit of quantity)
 
 I recommend install [Anaconda](https://www.anaconda.com/) distribution which contains everything except Pint.
 
