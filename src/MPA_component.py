@@ -62,6 +62,16 @@ class SignalPacket():
     def copy(self):
         return SignalPacket(self.wavelength, self.E_in, self.A_in, self.dfdt, self.phase, self.B_integral)
 
+    # set new energy and calculating new saturation fluence
+    def set_energy(self, new_energy):
+        self.E_in = new_energy
+        self.J_in = self.E_in / self.A_in
+
+    # set new energy and calculating new saturation fluence
+    def set_area(self, new_area):
+        self.A_in = new_area
+        self.J_in = self.E_in / self.A_in
+
 class SignalGenerator():
     def __init__(self, signal_res = 100):
         self.signal_res = int(2 * (signal_res //2))
@@ -207,8 +217,10 @@ class SignalManipulator():
             new_signal_stack = []
             for signal_packet in signal_stack:
                 new_signal_packet = signal_packet.copy()
-                new_signal_packet.E_in =  energy_scaling * new_signal_packet.E_in + energy_offset
-                new_signal_packet.A_in =  area_scaling * new_signal_packet.A_in + area_offset
+                new_energy = energy_scaling * signal_packet.E_in + energy_offset
+                new_area =  area_scaling * new_signal_packet.A_in + area_offset
+                new_signal_packet.set_energy(new_energy)
+                new_signal_packet.set_area(new_area)
                 new_signal_stack.append(new_signal_packet)
             new_signal_pile.append(new_signal_stack)
         return new_signal_pile
@@ -262,6 +274,12 @@ class UnitAmplifier():
             E_out = J_out * packet.A_in
             # calculate energy remain
             self.E_rem += (packet.E_in - E_out)
+            # print('J_sat : ' + str(J_sat))
+            # print('J_in : ' + str(packet.J_in))
+            # print('E_in : ' + str(packet.E_in))
+            # print('E_out : ' + str(E_out))
+            # print('G_0 : ' + str(G_0))
+            # print('E_rem : ' + str(self.E_rem))
 
             # calculate B integral under construction
             average_intensity = (packet.E_in + E_out)/ (2 * packet.dfdt * packet.A_in)
@@ -353,7 +371,7 @@ class MultiPassAmplifier():
 
     # calculate attenuation to attenuation
     def absorbance_to_attenuation (self, length, absorbance, reflectance = 0):
-        return -(1 / length) * log(1 - absorbance - reflectance)
+        return -(1 / length) * np.log(1 - absorbance - reflectance)
 
     # use Beer - Lambert law to calculate transmittance
     def get_transmittance(self, attenuation, length):
@@ -385,6 +403,7 @@ class MultiPassAmplifier():
                 #create a list of stored energy in crystal
                 store.append(Store(E_sto, A_sto))
         elif dist == 'uniform' or dist == 'uni': # energy is uniformly distibuted (traverse pump)
+            eff_E_pump = pump.E_pump
             if front_pump and back_pump:
                 eff_E_pump = 2 * pump.E_pump
             abs = 1 - np.exp(-self.crystal.attenuation * self.crystal.length) #assume reflectance = 0
@@ -398,8 +417,8 @@ class MultiPassAmplifier():
     # calculate single pass amplification
     def calculate_single_pass_amplification(self, store, signal):
         dl = self.crystal.length / self.crystal_res # length of each crystal split
-        sto = store # current store energy in crystal
-        in_sig = signal # current input signal pile
+        sto = np.copy(store) # current store energy in crystal
+        in_sig = np.copy(signal) # current input signal pile
         input_train = [] # save input signal pile for each crystal
         output_train = [] # save output signal pile for each crystal
         amp_matrix = [] # save unit amplification for each crystal
@@ -441,8 +460,8 @@ class MultiPassAmplifier():
         remain = []
         amp_matrix, *rest = self.passes[-1] #use data from last passes
         for amp_pile in amp_matrix:
-            remain.append(amp_pile[-1].get_remain_energy()) #use remain energy after last time split passes
-        return remain
+            remain.append(amp_pile[-1].get_remain_energy()) # use remain energy after last time split passes
+        return np.array(remain)
 
     def multiply_signal_pile(self, signal_pile, multiplier):
         new_sig = []
@@ -450,19 +469,20 @@ class MultiPassAmplifier():
             lst = []
             for signal_packet in signal_t:
                 new_signal_pack = signal_packet.copy()
-                new_signal_pack.E_in =  multiplier * new_signal_pack.E_in
+                new_energy =  multiplier * signal_packet.E_in
+                new_signal_pack.set_energy(new_energy)
                 lst.append(new_signal_pack)
             new_sig.append(lst)
-        return new_sig
+        return np.array(new_sig)
 
     # calculate multi pass amplification
     def calculate_multi_pass_amplification(self, store, signal, run):
-        sig = signal
-        sto = store
+        sig = np.copy(signal)
+        sto = np.copy(store)
         for i in range(run):
             sig = self.calculate_single_pass_amplification(sto, sig)
             sto = self.calculate_stored_energy_from_remain()
-            sto.reverse()
+            sto = np.flip(sto)
             # account for loss per path
             if self.loss_per_path > 0 and self.loss_per_path <= 1:
                 sig = self.multiply_signal_pile(sig, 1 - self.loss_per_path)

@@ -1,5 +1,6 @@
 from MPA_component import *
 from MPA_utils import *
+from scipy.constants import Planck, speed_of_light
 
 def pack_signal_pile(wavelength_pile, signal_matrix, input_area, dfdt):
     rslt = []
@@ -21,7 +22,7 @@ def unpack_signal_pile(signal_pile, dfdt):
             phase = signal_packet.phase
             lst.append(polar_to_rect(amp, phase))
         rslt.append(lst)
-    return np.transpose(rslt)
+    return np.transpose(np.array(rslt))
 
 def set_cross_section_parameter():
     # fit the cross section function
@@ -38,3 +39,34 @@ def cross_section_func(wavelength, params, scaling = 1):
 
 def calculate_crystal_J_sat(cross_section, freq):
     return (Planck * freq) / (cross_section_func(lambda2nu(freq)))
+
+def plot_multi_pass_data(ax, passes, data_list, color_list, label_list, x_scaling = 1, y_scaling = 1, loc = ''):
+    for path in range(passes):
+        for idx, data in enumerate(data_list):
+            x, y = data
+            x = x_scaling * x
+            y = y_scaling * y
+            points_per_path = int(len(x) // passes)
+            start = path*points_per_path
+            end = (path+1)*points_per_path
+
+            if not path == 0:
+                ax.plot(x[start : end], y[start : end], c = color_list[idx])
+            else: #first pass
+                ax.plot(x[start : end], y[start : end], c = color_list[idx], label = label_list[idx])
+
+            if path < passes - 1 and idx == len(data_list) - 1:
+                ax.axvline(x = x[end] - 0.5*(x[1] - x[0]), ls = '--', c = 'black', alpha = 0.5)
+    if loc == '':
+        plt.legend()
+    else:
+        plt.legend(loc = loc)
+
+def plot_multi_pass_last_value(ax, passes, data, color, format, x_scaling = 1, y_scaling = 1, x_offset = 0, y_offset = 0, fontsize = 10):
+    x, y = data
+    x = x_scaling * x
+    y = y_scaling * y
+    points_per_path = int(len(x) // passes)
+    for path in range(passes):
+        val = y[(path+1)*points_per_path - 1]
+        ax.text(x[(path+1)*points_per_path - 1] + x_offset, val + y_offset, format.format(val), c = color, fontsize = fontsize)
